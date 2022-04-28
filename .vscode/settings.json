@@ -5,7 +5,7 @@
     "workbench.statusBar.visible": false,
     "gitlens.currentLine.enabled": false,
     "edit.formatOnSave": true,
-    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontSize": 14,
     "terminal.integrated.fontWeight": "500",
     "terminal.integrated.fontWeightBold": "600"
 }
