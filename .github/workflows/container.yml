@@ -2,6 +2,24 @@ name: Container
 on: push
 
 jobs: 
+  docker-steps:
+    runs-on: ubuntu-latest
+    container:
+      image: node:10.18.0-jessie
+    steps:
+      - name: Log Node Version
+        run: node -v 
+      - name: Step With Docker 
+        uses: docker://node:12.14.1-alpine3.10
+        with: 
+          entrypoint: '/bin/echo'
+          args: 'Hello World'
+      - name: Log Node Version With Docker
+        uses: docker://node:12.14.1-alpine3.10
+        with: 
+          entrypoint: /usr/local/bin/node
+          args: -v
+
   node-docker:
     runs-on: ubuntu-latest
     services:
@@ -16,13 +34,13 @@ jobs:
     # container: 
     #   image: node:16.15-alpine3.14
     steps:
-      # - name: Log Node Version
-      #   run: |
-      #     node -v 
-      #     cat /etc/os-release
-      - name: Post A User
-        run: 'curl -X POST http://localhost:3001/api/users -H ''Content-Type: application/json'' -d ''{"username": "hello","address":"dwded"} '' '
-      - name: Get Users
-        run: curl http://localhost:3001/api/users
+      - name: Log Node Version
+        run: |
+          node -v 
+          cat /etc/os-release
+      # - name: Post A User
+      #   run: 'curl -X POST http://localhost:3001/api/users -H ''Content-Type: application/json'' -d ''{"username": "hello","address":"dwded"} '' '
+      # - name: Get Users
+      #   run: curl http://localhost:3001/api/users
 
 
