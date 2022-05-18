@@ -21,7 +21,7 @@ jobs:
       #     node -v 
       #     cat /etc/os-release
       - name: Post A User
-        run: "curl -X POST http://localhost:3001/api/users -H 'Content-Type: application/json' -d ' {\"username\": \"hello\",\"address\":\"dwded\"} ' "
+        run: 'curl -X POST http://localhost:3001/api/user -H ''Content-Type: application/json'' -d ''{"username": "hello","address":"dwded"} '' '
       - name: Get Users
         run: curl http://localhost:3001/api/users
 
